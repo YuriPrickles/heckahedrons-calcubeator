@@ -1,0 +1,23 @@
+python -m PyQt6.uic.pyuic -x ui/DamageCalcCB.ui -o main_window_ui.py
+
+
+delete from Sticker_has_tag where Sticker_stickerID > 0;
+delete from Monster_has_tag where monsters_id > 0;
+delete from sticker where stickerID > 0;
+delete from monsters where id > 0;
+delete from tag where tagID > 0;
+delete from sticker where stickerID > 0;
+alter table tag auto_increment = 1;
+alter table sticker auto_increment = 1;
+alter table character auto_increment = 1;
+load data infile "C:/ProgramData/MySQL/MySQL Server 9.1/Uploads/Stickers.csv" ignore into table sticker fields terminated by "," ignore 1 lines;
+load data infile "C:/ProgramData/MySQL/MySQL Server 9.1/Uploads/stickerTag.csv" ignore into table Sticker_has_tag fields terminated by "," ignore 1 lines;
+load data infile "C:/ProgramData/MySQL/MySQL Server 9.1/Uploads/monsterTag.csv" ignore into table Monster_has_tag fields terminated by "," ignore 1 lines;
+load data infile "C:/ProgramData/MySQL/MySQL Server 9.1/Uploads/Monsters.csv" ignore into table monsters fields terminated by "," ignore 1 lines;
+load data infile "C:/ProgramData/MySQL/MySQL Server 9.1/Uploads/Stickers.csv" ignore into table sticker fields terminated by "," ignore 1 lines;
+select * from sticker;
+select * from Sticker_has_tag
+select * from Monster_has_tag
+
+python -m PyQt6.uic.pyuic -x ui/mainMenu.ui -o mainMenu.py
+

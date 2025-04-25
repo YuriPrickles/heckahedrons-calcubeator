@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>895</width>
+    <height>519</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="Attacker">
+      <item>
+       <layout class="QVBoxLayout" name="TickBoxes">
+        <item>
+         <widget class="QCheckBox" name="STAB">
+          <property name="text">
+           <string>Same-Type Attack Bonus</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="SigTape">
+          <property name="text">
+           <string>Signature Tape</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="Physicality">
+          <item>
+           <widget class="QRadioButton" name="Melee">
+            <property name="text">
+             <string>Melee</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <property name="autoRepeat">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="Ranged">
+            <property name="text">
+             <string>Ranged</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="MonsterStats">
+        <item>
+         <layout class="QHBoxLayout" name="MDMG">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QLabel" name="l">
+              <property name="text">
+               <string>Melee Damage</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="value_mDMG">
+              <property name="maximum">
+               <number>9999999</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>Ranged Damage</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="value_rDMG">
+              <property name="maximum">
+               <number>9999999</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="MGrade">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Monster Tape Grade</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_mGrade">
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="StatStages">
+        <item>
+         <widget class="QLabel" name="label_16">
+          <property name="text">
+           <string>Damage StatStages</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="value_mStatStages">
+          <property name="minimum">
+           <number>-9999999</number>
+          </property>
+          <property name="maximum">
+           <number>9999999</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Character Melee Atk</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_cMStat">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>Character Ranged Atk</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_cRStat">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="Type">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Monster Type</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="value_mType">
+          <item>
+           <property name="text">
+            <string>Typeless</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Beast</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Air</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Astral</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Earth</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fire</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ice</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Lightning</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Metal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Plant</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Plastic</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Poison</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Water</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Glass</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Glitter</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="Level">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Level</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="value_mLevel">
+          <property name="maximum">
+           <number>9999999</number>
+          </property>
+          <property name="value">
+           <number>200</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="StickerPower">
+        <item>
+         <layout class="QHBoxLayout" name="Power">
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Sticker Power</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_stickerPower">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+            <property name="value">
+             <number>30</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="Hits">
+          <item>
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Hits</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_hits">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+            <property name="value">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="Attributes">
+        <item>
+         <layout class="QHBoxLayout" name="PassiveDMG">
+          <item>
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Passive Damage %</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_pDMG">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="PassiveCrit">
+          <item>
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Passive Crit DMG %</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_pCrit">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="FinalCalculations">
+      <item>
+       <layout class="QVBoxLayout" name="CustomRand">
+        <item>
+         <widget class="QCheckBox" name="value_customRand">
+          <property name="text">
+           <string>Custom Random Value</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="CustomRandValue" stretch="0,0">
+          <property name="spacing">
+           <number>7</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Custom Random Value&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:6pt; color:#545454;&quot;&gt;(used with Use Custom Random Value)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_customRandVal">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="FinalBoxes">
+        <item>
+         <widget class="QCheckBox" name="value_doCrits">
+          <property name="text">
+           <string>Calculate Crits</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="value_hasRes">
+          <property name="text">
+           <string>Defender has Resistance Sticker</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="value_conductive">
+          <property name="text">
+           <string>Defender is Conductive</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Calculate Damage!</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="Defender">
+      <item>
+       <layout class="QVBoxLayout" name="DefenderStats">
+        <item>
+         <layout class="QHBoxLayout" name="DStats">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Melee Defense</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="value_mdStat">
+              <property name="maximum">
+               <number>9999999</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_20">
+              <property name="text">
+               <string>Ranged Defense</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="value_rdStat">
+              <property name="maximum">
+               <number>9999999</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="DefenderTapeGrade">
+          <item>
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>Defender Tape Grade</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_dGrade">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="DefCharStats">
+        <item>
+         <layout class="QHBoxLayout" name="DefStatStages">
+          <item>
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>Defense StatStages</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_dStatStages">
+            <property name="minimum">
+             <number>-9999999</number>
+            </property>
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>Character Melee Def</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="value_mdCharStat">
+              <property name="maximum">
+               <number>9999999</number>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QLabel" name="label_22">
+              <property name="text">
+               <string>Character Ranged Def</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="value_rdCharStat">
+              <property name="maximum">
+               <number>9999999</number>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="DefType">
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Defender Type</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="value_dType">
+          <item>
+           <property name="text">
+            <string>Typeless</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Beast</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Air</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Astral</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Earth</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fire</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ice</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Lightning</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Metal</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Plant</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Plastic</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Poison</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Water</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Glass</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Glitter</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="DefLevel">
+        <item>
+         <widget class="QLabel" name="label_13">
+          <property name="text">
+           <string>Defender Level</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="value_dLevel">
+          <property name="maximum">
+           <number>9999999</number>
+          </property>
+          <property name="value">
+           <number>200</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="HPCalc">
+        <item>
+         <widget class="QCheckBox" name="value_calcHP">
+          <property name="text">
+           <string>Also Calculate HP% Lost</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="DefHP">
+          <item>
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Defender HP&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:6pt; color:#545454;&quot;&gt;(used with Also Calculate HP% Lost)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="value_dHP">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="CHARACTERHPDEFENDING">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Character HP</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="d_charHP">
+            <property name="maximum">
+             <number>9999999</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>895</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuSet_Attacking_Battler">
+     <property name="title">
+      <string>Set Attacking Battler</string>
+     </property>
+     <addaction name="presetBattler_ATK"/>
+     <addaction name="customBattler_ATK"/>
+    </widget>
+    <widget class="QMenu" name="menuSet_Defending_Battle">
+     <property name="title">
+      <string>Set Defending Battler</string>
+     </property>
+     <addaction name="presetBattler_DEF"/>
+     <addaction name="customBattler_DEF"/>
+    </widget>
+    <addaction name="setAttacker"/>
+    <addaction name="setDefender"/>
+    <addaction name="separator"/>
+    <addaction name="menuSet_Attacking_Battler"/>
+    <addaction name="menuSet_Defending_Battle"/>
+   </widget>
+   <addaction name="menuTools"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="setAttacker">
+   <property name="text">
+    <string>Set Attacking Monster</string>
+   </property>
+  </action>
+  <action name="setDefender">
+   <property name="text">
+    <string>Set Defending Monster</string>
+   </property>
+  </action>
+  <action name="customBattler_ATK">
+   <property name="text">
+    <string>Custom Values</string>
+   </property>
+  </action>
+  <action name="presetBattler_ATK">
+   <property name="text">
+    <string>Preset Values</string>
+   </property>
+  </action>
+  <action name="presetBattler_DEF">
+   <property name="text">
+    <string>Preset Values</string>
+   </property>
+  </action>
+  <action name="customBattler_DEF">
+   <property name="text">
+    <string>Custom Values</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>STAB</tabstop>
+  <tabstop>SigTape</tabstop>
+  <tabstop>Melee</tabstop>
+  <tabstop>Ranged</tabstop>
+  <tabstop>value_mDMG</tabstop>
+  <tabstop>value_rDMG</tabstop>
+  <tabstop>value_mGrade</tabstop>
+  <tabstop>value_mStatStages</tabstop>
+  <tabstop>value_cMStat</tabstop>
+  <tabstop>value_cRStat</tabstop>
+  <tabstop>value_mType</tabstop>
+  <tabstop>value_mLevel</tabstop>
+  <tabstop>value_stickerPower</tabstop>
+  <tabstop>value_hits</tabstop>
+  <tabstop>value_pDMG</tabstop>
+  <tabstop>value_pCrit</tabstop>
+  <tabstop>value_mdStat</tabstop>
+  <tabstop>value_rdStat</tabstop>
+  <tabstop>value_dGrade</tabstop>
+  <tabstop>value_dStatStages</tabstop>
+  <tabstop>value_mdCharStat</tabstop>
+  <tabstop>value_rdCharStat</tabstop>
+  <tabstop>value_dType</tabstop>
+  <tabstop>value_dLevel</tabstop>
+  <tabstop>value_calcHP</tabstop>
+  <tabstop>value_dHP</tabstop>
+  <tabstop>d_charHP</tabstop>
+  <tabstop>value_customRand</tabstop>
+  <tabstop>value_customRandVal</tabstop>
+  <tabstop>value_doCrits</tabstop>
+  <tabstop>value_hasRes</tabstop>
+  <tabstop>value_conductive</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton</receiver>
+   <slot>showMenu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>413</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>416</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

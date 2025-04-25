@@ -1,0 +1,18 @@
+    dataFile = open(directory + "Stickers.csv", "r")
+    read = csv.reader(dataFile, quoting=csv.QUOTE_STRINGS)
+    header = read.__next__()
+    for row in read:
+        print(row)
+        sql = f"INSERT INTO sticker(stickerID, name, type, category, power, accuracy, apCost, description) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"
+        print(sql)
+        awesomeCursor.execute(sql,row)
+    dataFile.close()
+
+    dataFile = open(directory + "Monsters.csv", "r")
+    read = csv.reader(dataFile, quoting=csv.QUOTE_STRINGS)
+    header = read.__next__()
+    for row in read:
+        sql = f"INSERT INTO monster VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,)"
+        print(sql)
+        awesomeCursor.execute(sql,row)
+    dataFile.close()

@@ -1,0 +1,291 @@
+id,Move,Type,Category,Power,Accuracy,AP Cost,Description
+1,Abramacabra,Beast,Status Effect,0,100,3,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns. This wall will also damage one opponent each turn.
+2,Acid Reflex,Poison,Status Effect,0,-1,0,Chance to poison an opponent automatically upon melee contact.
+3,Acorn Mortar,Plant,Ranged Attack,100,75,3,Hits one target.
+4,Air Camouflage,Air,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+5,Air Coating,Air,Status Effect,0,100,2,Changes the type of the user or an ally.
+6,Air Resistance,Air,Miscellaneous,0,100,0,"Passively reduces incoming Air-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+7,Air Wall,Air,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+8,AP Boost,Astral,Status Effect,0,100,1,Boosts the target’s AP generation.
+9,AP Donate,Typeless,Miscellaneous,0,-1,1,Shifts all remaining AP from the user to the target.
+10,AP Drain,Astral,Status Effect,0,100,1,Reduces the target’s AP generation.
+11,AP Factory,Typeless,Miscellaneous,0,-1,0,Automatically shifts all the user’s AP to its allies at the start of each round.
+12,AP Refund,Typeless,Miscellaneous,0,100,0,Chance to automatically refund AP after a move is used.
+13,AP Starter,Typeless,Miscellaneous,0,100,0,Grants 1 extra AP at the start of battle.
+14,AP Steal,Poison,Miscellaneous,0,70,0,Steals 1 AP from the target and gives it to the user.
+15,Astral Camouflage,Astral,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+16,Astral Coating,Astral,Status Effect,0,100,2,Changes the type of the user or an ally.
+17,Astral Resistance,Astral,Miscellaneous,0,100,0,"Passively reduces incoming Astral-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+18,Astral Wall,Astral,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+19,Automation,Typeless,Miscellaneous,0,100,0,"Chance to use the next move in the list, for 0 AP, at the end of the turn."
+20,Avalanche,Ice,Status Effect,0,-1,2,All melee attacks fail this round.
+21,Bad Forecast,Poison,Status Effect,0,50,1,Gives the target Evasion Nullified status for 3 turn(s). Also randomises the weather. Automatically used at the start of battle.
+22,Bad Joke,Typeless,Miscellaneous,0,-1,0,The user tells a random joke. This has no effect.
+23,Battering Ram,Typeless,Melee Attack,70,85,3,Hits one target. Lowers the target’s Accuracy.
+24,Battery,Lightning,Melee Attack,40,100,3,Hits one target twice. Lands critical hits if used after Charge.
+25,bE rAnDoM!!,Astral,Miscellaneous,0,100,0,Uses a random move that you have enough AP for.
+26,Bear Hug,Beast,Melee Attack,30,100,1,Transfers one debuff at random from the user onto the target.
+27,Beast Camouflage,Beast,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+28,Beast Coating,Beast,Status Effect,0,100,2,Changes the type of the user or an ally.
+29,Beast Resistance,Beast,Miscellaneous,0,100,0,"Passively reduces incoming Beast-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+30,Beast Wall,Beast,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+31,Berserker,Beast,Status Effect,0,100,0,Automatically raises the user’s Melee Attack and inflicts them with Berserk when the user’s HP falls below 50%.
+32,Binvasion,Fire,Ranged Attack,30,100,3,Hits one target as many times as there are Binvaders on the user’s team.
+33,Binvitation,Metal,Miscellaneous,0,50,4,Calls for help from the mothership.
+34,Bish Bash Bosh,Typeless,Melee Attack,60,100,3,Hits a whole team.
+35,Bite,Beast,Melee Attack,80,100,3,Hits one target. Heals the user a little bit afterwards.
+36,Blizzard,Ice,Ranged Attack,60,100,5,Hits a whole team. Lowers the targets’ Accuracy.
+37,Blood Donation,Beast,Miscellaneous,0,-1,2,"Reduces the user’s HP by half, giving it to the target."
+38,Bloodlust,Beast,Status Effect,0,-1,0,Automatically raises the user’s Melee and Ranged Attack stats when an opponent is defeated.
+39,Boil,Water,Melee Attack,90,100,3,Hits one target. Chance to burn the target.
+40,Bolt From The Blue,Lightning,Miscellaneous,0,50,4,Summons a temporary Boltam ally.
+41,Bon Bon Blast,Typeless,Ranged Attack,70,85,3,Hits one target. Lowers the target’s Evasion.
+42,Bone Cannon,Beast,Ranged Attack,40,100,3,Hits one target multiple times.
+43,Booby Trap,Typeless,Miscellaneous,30,100,0,Damages the user.
+44,Bottle Volley,Glass,Ranged Attack,40,100,3,Hits one target multiple times.
+45,Brace for Impact,Metal,Melee Attack,120,100,4,Hits one target. Uses the user’s Melee Defence stat instead of Melee Attack. Also damages the user.
+46,Breathing Technique,Astral,Miscellaneous,0,50,0,Prevents the user from being inflicted with Berserk.
+47,Brick Blast,Plastic,Ranged Attack,40,100,4,Hits each member of a team multiple times.
+48,Broadcast,Air,Status Effect,0,100,2,Gives the user Multitarget status for 3 turn(s).
+49,Burning Passion,Fire,Status Effect,0,100,0,Automatically raises the user’s Ranged and Melee Attack whenever the user gains the Burned status effect.
+50,Bushfire,Plant,Status Effect,0,-1,2,"Changes the user’s type to Fire, and makes them deal additional Fire damage on contact. Also burns the user."
+51,Butterfly Effect,Air,Ranged Attack,30,100,0,"Consumes all the user’s AP. The power of this attack is increased by 15 times the AP consumed. The type of the attack, and any extra status effects, are determined by the current weather."
+52,Call For Help,Typeless,Miscellaneous,0,50,2,Chance to summon a temporary ally.
+53,Carnivore,Beast,Miscellaneous,0,100,0,Increases the amount of HP restored by Bite.
+54,Change the Record,Typeless,Miscellaneous,0,-1,2,Forces the target to randomly switch to another of their tapes.
+55,Charge,Lightning,Melee Attack,60,100,2,Hits one target.
+56,Chemical Imbalance,Poison,Miscellaneous,0,100,0,"Chance to automatically use the next move in the list, for 0 AP, when the user lands a type-advantaged hit. The chance is reduced in proportion to the move’s normal AP cost."
+57,Clay-Fired,Earth,Status Effect,0,-1,0,Activates when the user takes Fire-type damage from an attack. Raises the user’s defence stats.
+58,Clobber,Typeless,Melee Attack,60,100,4,Hits one target multiple times.
+59,Clockwork Mouse,Plastic,Melee Attack,120,100,5,Hits one target.
+60,Close Encounter,Astral,Status Effect,0,100,1,The target’s ranged attacks become melee attacks.
+61,Coal Story,Earth,Ranged Attack,30,100,1,Hits one target. Inflicts Burned on the target.
+62,Cold Fusion,Ice,Miscellaneous,0,-1,0,"Activates whenever anyone fuses. Reduces the fusion’s HP by 20% of its Max HP, and causes it to flinch."
+63,Compliment,Typeless,Status Effect,0,100,1,Lowers the target’s Ranged Defence.
+64,Copper Chop,Metal,Melee Attack,60,100,3,Hits one target. Inflicts Resonance on Glass- and Metal-type targets.
+65,Copy That,Air,Miscellaneous,0,-1,2,Transforms the user into a copy of the target.
+66,Copycat,Beast,Miscellaneous,0,100,0,"Copies the last move the target used, if you have the AP."
+67,Cosmic Kunai,Astral,Ranged Attack,150,100,10,Hits a whole team. Destroys walls.
+68,Cotton On,Plant,Status Effect,0,-1,4,Reduces the accuracy of moves that can be evaded that target the user to 0% for the next round.
+69,Critical AP,Typeless,Miscellaneous,0,100,0,The user gains 1 AP each time they land a critical hit.
+70,Critical Mass,Fire,Miscellaneous,0,100,0,"Chance to use the next move in the list, for 0 AP, when the user lands a critical hit."
+71,Criticise,Typeless,Status Effect,0,100,1,Lowers the target’s Ranged Attack.
+72,Crossfade,Typeless,Miscellaneous,0,100,1,Switches the user’s form but applies a coating that keeps its type the same.
+73,Crumble,Earth,Ranged Attack,30,-1,2,"Destroys every wall, inflicting damage to each fighter with a wall proportional to the remaining duration of their wall."
+74,Crystal Lens,Glass,Ranged Attack,60,100,2,Hits one target.
+75,Custom Starter,Typeless,Miscellaneous,0,100,0,"Chance to automatically use the next move in the list, for 0 AP, at the start of battle. The chance is reduced in proportion to the move’s normal AP cost."
+76,Damage Roll,Typeless,Ranged Attack,9,100,3,The user rolls a 20-sided die. Damage is multiplied by the number of the die. Special effects take place on rolls of 1 or 20.
+77,Deep Freeze,Ice,Status Effect,0,100,3,"Freezes the opponent’s cassette player, inflicting them with the Tape Jam status effect."
+78,Defend,Typeless,Status Effect,0,100,1,Raises the user’s Melee Defence.
+79,Déjà Vu,Astral,Status Effect,0,100,2,Gives the user Multistrike status for 3 turn(s).
+80,Delegate,Typeless,Miscellaneous,0,100,3,Transfers the user’s status effects onto its ally.
+81,Desperation,Typeless,Melee Attack,20,100,1,Does more damage if the user is low on health.
+82,Djinntoxicate,Astral,Ranged Attack,90,100,4,Hits one target. Inflicts the Confused status on the target.
+83,Doc Leaf,Plant,Status Effect,0,100,1,Gives the target Healing Leaf status for 3 turn(s).
+84,Dodge,Typeless,Status Effect,0,100,1,Raises the user’s Evasion.
+85,Dog Years,Beast,Miscellaneous,0,100,4,Extends the duration of the target’s status effects.
+86,Double Slice,Typeless,Melee Attack,30,100,4,Hits each member of a team multiple times.
+87,Double Smack,Typeless,Melee Attack,30,100,2,Hits one target multiple times.
+88,Dual Wield,Typeless,Miscellaneous,0,100,2,"Uses the next move in the list twice in succession, if you have enough AP."
+89,Earth Camouflage,Earth,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+90,Earth Coating,Earth,Status Effect,0,100,2,Changes the type of the user or an ally.
+91,Earth Resistance,Earth,Miscellaneous,0,100,0,"Passively reduces incoming Earth-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+92,Earth Wall,Earth,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+93,Echolocation,Air,Status Effect,0,100,2,Used automatically at the start of battle for 0 AP. Gives the user Multitarget status for 3 turn(s).
+94,Elemental Coating,Typeless,Status Effect,0,100,2,Changes the type of the user or an ally.
+95,Elemental Wall,Typeless,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+96,Energy Reserves,Lightning,Miscellaneous,0,100,0,Chance to give 1 AP to a random ally at the end of the user’s turn.
+97,Energy Shot,Typeless,Ranged Attack,60,100,2,Hits one target.
+98,Energy Wave,Typeless,Ranged Attack,60,100,3,Hits a whole team.
+99,Fair Fight,Metal,Status Effect,0,-1,2,Prevents new status effects from being applied for 3 turns.
+100,Final Breath,Typeless,Miscellaneous,0,100,0,"If your HP is above 80% and you receive an attack that would reduce it to 0, you survive with 1 HP."
+101,Fire Camouflage,Fire,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+102,Fire Coating,Fire,Status Effect,0,100,2,Changes the type of the user or an ally.
+103,Fire Wall,Fire,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+104,Fireproof,Fire,Miscellaneous,0,100,0,"Passively reduces incoming Fire-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+105,Fission Power,Typeless,Miscellaneous,0,100,1,"The user undergoes fission, dividing itself into two copies."
+106,Flirt,Typeless,Status Effect,0,100,1,Lowers the target’s Evasion.
+107,Focus,Typeless,Status Effect,0,100,1,Raises the user’s Accuracy.
+108,Fog,Water,Status Effect,0,-1,4,"Reduces accuracy of ranged attacks that aren’t Water, Air or Ice-type to 0% for 3 turns."
+109,Fossil,Earth,Miscellaneous,0,100,0,Automatically restores the user to full health if they become Petrified.
+110,Frozen Ground,Ice,Status Effect,0,-1,1,"Massively raises the user’s Speed, but lowers their accuracy."
+111,Fuel Injection,Fire,Status Effect,0,100,0,Automatically used after Guzzle Fuel. Raises the user’s Speed and AP generation.
+112,Fusion Power,Typeless,Miscellaneous,200,100,10,Has an effect unique to this fusion pairing.
+113,Galactic Beatdown,Astral,Melee Attack,90,-1,4,Hits one target. Cannot be evaded.
+114,Gambit,Typeless,Status Effect,0,100,2,"Raises all the user’s stats by a lot. After 3 turns, the tape breaks."
+115,Gasoline Spray,Fire,Status Effect,0,100,3,Gives the target Flammable status.
+116,Gear Shear,Metal,Ranged Attack,50,100,10,"Hits one target multiple times, with reduced priority compared with other moves."
+117,Gemstone Wall,Earth,Status Effect,0,100,3,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns. This wall will also provide its owner with 1 extra AP each turn.
+118,Glass Bonds,Glass,Status Effect,0,100,2,Damages the target each time it transforms.
+119,Glass Camouflage,Glass,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+120,Glass Cannon,Glass,Ranged Attack,120,100,4,Hits one target. Also damages the user a little.
+121,Glass Coating,Glass,Status Effect,0,100,2,Changes the type of the user or an ally.
+122,Glass Resistance,Glass,Miscellaneous,0,100,0,"Passively reduces incoming Glass-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+123,Glass Wall,Glass,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+124,Glitter Bomb,Glitter,Ranged Attack,30,100,0,Hits one target.
+125,Glitter Resistance,Glitter,Miscellaneous,0,100,0,"Passively reduces incoming Glitter-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+126,Grounded,Lightning,Miscellaneous,0,100,0,"Passively reduces incoming Lightning-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+127,Guzzle Fuel,Fire,Miscellaneous,0,100,2,Removes 2 AP from the target.
+128,Hardback,Typeless,Miscellaneous,0,100,0,"Reduces incoming damage from all but critical and Fire-type attacks. Fire-type attacks received are always critical, and do not provide buffs."
+129,Haunt,Astral,Status Effect,0,100,2,"The user becomes a ghost and cannot be hit by attacks. After 3 turns, the tape breaks."
+130,Headshot,Typeless,Ranged Attack,200,100,10,Hits one target.
+131,Heroic Blade,Typeless,Melee Attack,90,100,3,Hits one target.
+132,Hibernate,Astral,Status Effect,0,100,3,Puts the user to sleep. The user recovers HP every turn it’s asleep.
+133,Hot Potato,Fire,Status Effect,0,100,3,Places a bomb on the target that will explode if not immediately passed on by melee contact.
+134,Hurricane,Air,Ranged Attack,90,100,5,Hits a whole team. Destroys walls.
+135,Hypnotise,Astral,Status Effect,0,50,2,Gives the target Sleep status for 3 turn(s).
+136,Ice Breaker,Ice,Melee Attack,90,100,4,Hits one target. Lowers the target’s Speed.
+137,Ice Camouflage,Ice,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+138,Ice Coating,Ice,Status Effect,0,100,2,Changes the type of the user or an ally.
+139,Ice Resistance,Ice,Miscellaneous,0,100,0,"Passively reduces incoming Ice-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+140,Ice Wall,Ice,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+141,Icicle Dart,Ice,Ranged Attack,70,85,2,Hits one target. Uses the user’s Speed stat instead of Ranged Attack.
+142,Incinerate,Fire,Melee Attack,40,100,3,Hits one target multiple times.
+143,Inflame,Fire,Ranged Attack,60,100,2,Hits one target.
+144,Insomnia,Astral,Miscellaneous,0,70,0,Prevents the user from falling asleep.
+145,Ionised Air,Lightning,Status Effect,0,100,3,Gives the target team Conductive status for 3 turn(s).
+146,Iron Filings,Metal,Status Effect,0,100,1,Makes the target Conductive.
+147,Jagged Edge,Typeless,Melee Attack,40,-1,0,Automatically inflicts damage when a melee attack misses the user.
+148,Jump Scare,Typeless,Melee Attack,30,100,1,Chance to cause the target to flinch.
+149,Last Rites,Typeless,Melee Attack,200,100,10,Hits one target.
+150,Leech,Plant,Status Effect,0,100,1,Gives the target Leeched status for 3 turn(s).
+151,Life Absorb,Plant,Melee Attack,30,100,1,Recovers an amount of HP equal to the damage dealt.
+152,Liftoff,Air,Status Effect,0,100,0,Gives the user AP Boost and Speed Up at the end of their third turn.
+153,Lightning Bolt,Lightning,Ranged Attack,90,100,3,Hits one target.
+154,Lightning Camouflage,Lightning,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+155,Lightning Coating,Lightning,Status Effect,0,100,2,Changes the type of the user or an ally.
+156,Lightning Wall,Lightning,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+157,Liquid Body,Poison,Miscellaneous,0,100,0,"Prevents the user from being inflicted with Burned, but makes all incoming Ice and Lightning-type attacks critical."
+158,Machine Curse,Metal,Miscellaneous,0,100,0,Reflects all damage and statuses dealt by moves triggered by other passive moves back onto the user.
+159,Magic Tome,Astral,Ranged Attack,70,100,3,Hits one target. Lowers the target’s Ranged Defence.
+160,Magnet,Metal,Status Effect,0,100,1,Used automatically at the start of battle for 0 AP. Prevents opponents targeting user’s allies for 3 turn(s).
+161,Meditate,Astral,Status Effect,0,100,3,Puts the user to sleep. Increases the user’s attack and defence stats every turn it’s asleep.
+162,Metal Camouflage,Metal,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+163,Metal Coating,Metal,Status Effect,0,100,2,Changes the type of the user or an ally.
+164,Metal Resistance,Metal,Miscellaneous,0,100,0,"Passively reduces incoming Metal-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+165,Metal Riff,Metal,Ranged Attack,60,100,3,Hits a whole team. Becomes an Air-type attack when equipped to a Metal-type tape.
+166,Metal Wall,Metal,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+167,Meteor Barrage,Earth,Ranged Attack,20,100,4,Hits each member of a team multiple times.
+168,Mind-Meld,Astral,Status Effect,0,-1,2,The user shares its moves with its allies.
+169,Moonshine,Astral,Ranged Attack,30,100,1,Hits one target. Inflicts the Confused status on the target.
+170,Mountain Smash,Earth,Melee Attack,90,100,4,Hits one target. Lowers the target’s Melee Defence.
+171,Multi Shot,Typeless,Ranged Attack,20,100,3,Hits one target multiple times.
+172,Multi Smack,Typeless,Melee Attack,20,100,3,Hits one target multiple times.
+173,Multicopy,Typeless,Status Effect,0,100,0,"If an opponent gains multitarget or multistrike, the user does so too."
+174,Neutralise,Water,Miscellaneous,0,100,0,Automatically removes the user’s debuffs when their HP falls below 50%.
+175,New Leaf,Plant,Miscellaneous,0,-1,3,Removes status effects from the target.
+176,Nod,Typeless,Status Effect,0,100,1,Lowers the target’s Melee Defence.
+177,Nurse,Typeless,Miscellaneous,0,-1,5,Heals one target for 50% of their Max HP.
+178,Paint Swipe,Typeless,Melee Attack,90,100,1,"Can only be used if the user has a coating active. Hits one target, and transfers the coating onto the target. Always goes last."
+179,Parry Stance,Beast,Status Effect,0,100,2,Reflects the first melee attack received this round.
+180,Peekaboo,Typeless,Status Effect,0,100,1,Lowers the target’s Accuracy.
+181,Phase Shift,Astral,Miscellaneous,0,100,0,The user’s attacks can hit ghosts.
+182,Pity AP,Typeless,Miscellaneous,0,100,0,The user gains 1 AP each time an attack of theirs misses.
+183,Plant Camouflage,Plant,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+184,Plant Coating,Plant,Status Effect,0,100,2,Changes the type of the user or an ally.
+185,Plant Resistance,Plant,Miscellaneous,0,100,0,"Passively reduces incoming Plant-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+186,Plant Wall,Plant,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+187,Plastic Camouflage,Plastic,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+188,Plastic Coating,Plastic,Status Effect,0,100,2,Changes the type of the user or an ally.
+189,Plastic Knife,Plastic,Melee Attack,40,100,3,Hits one target multiple times.
+190,Plastic Resistance,Plastic,Miscellaneous,0,100,0,"Passively reduces incoming Plastic-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+191,Plastic Wall,Plastic,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+192,Poison Camouflage,Poison,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+193,Poison Coating,Poison,Status Effect,0,100,2,Changes the type of the user or an ally.
+194,Poison Pollen,Plant,Status Effect,0,100,1,Gives the target Poisoned status for 3 turn(s).
+195,Poison Resistance,Poison,Miscellaneous,0,100,0,"Passively reduces incoming Poison-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+196,Poison Wall,Poison,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+197,Pole Vault Assault,Air,Melee Attack,90,100,7,Hits one target multiple times.
+198,Pre-emptive Strike,Typeless,Melee Attack,30,100,0,Automatically hits one opponent at the start of battle.
+199,Prismatic,Glitter,Status Effect,0,-1,0,Randomises the user’s type at the end of each round.
+200,Provoke,Poison,Status Effect,0,100,1,Prevents opponents from directly targeting the user’s allies for 3 turns.
+201,Pumpkin Pie,Plant,Status Effect,0,-1,2,Raises the user’s Speed and AP generation.
+202,Pustule Bomb,Poison,Ranged Attack,60,100,4,Hits a whole team.
+203,Quick Smack,Typeless,Melee Attack,30,100,1,Hits one target. Takes priority over other moves.
+204,Radiation Breath,Poison,Ranged Attack,20,100,4,Hits each member of a team multiple times.
+205,Radioactive,Fire,Status Effect,0,-1,0,Chance to burn an opponent automatically upon melee contact.
+206,Raise Arms,Typeless,Status Effect,0,100,1,Raises the user’s Ranged Attack.
+207,Raise Shields,Typeless,Status Effect,0,100,1,Raises the user’s Ranged Defence.
+208,Random Starter,Typeless,Miscellaneous,0,100,0,"Chance to automatically use another move at random, for 0 AP, at the start of battle."
+209,Rapid Fire,Fire,Ranged Attack,30,100,5,"Hits one target multiple times, with priority over other moves."
+210,Recycle,Plastic,Miscellaneous,0,100,0,Destroys the user’s wall and gives them an amount of AP equal to its remaining duration.
+211,Retribution,Typeless,Status Effect,0,-1,0,Activates when an ally is defeated. Raises the user’s attack stats.
+212,Return Fire,Typeless,Ranged Attack,15,100,0,Chance to be used automatically when hit with a ranged attack.
+213,Revenge Strike,Typeless,Melee Attack,15,100,0,Chance to be used automatically when hit with a melee attack.
+214,Revolving Door,Glass,Miscellaneous,0,100,2,Steals the target’s wall and transfers it to the user.
+215,Ricochet,Typeless,Miscellaneous,0,100,0,The user’s ranged attacks have a 50% chance to ignore opponents’ walls.
+216,Ritual,Astral,Status Effect,0,100,6,Brings the user back to life at 25% HP upon defeat.
+217,Roll Again,Typeless,Miscellaneous,0,100,0,"Chance to automatically use another move at random, at the end of the turn."
+218,Royal Flush,Water,Ranged Attack,20,100,6,Removes all status effects from the user. Damage is multiplied by the number of statuses removed.
+219,Sandstorm,Earth,Ranged Attack,60,100,3,Hits a whole team. Reduces the targets’ remaining status effect durations by 1.
+220,Scorch,Fire,Status Effect,0,100,1,Gives the target Burned status for 3 turn(s).
+221,Self-Assured,Typeless,Miscellaneous,0,70,0,Prevents the user from being inflicted with Confused.
+222,Self-Destruct,Fire,Ranged Attack,60,100,0,"Causes the user to explode upon defeat, damaging all of those around it."
+223,Sharp Edges,Typeless,Status Effect,0,100,2,Gives the user a Contact Damage status for 3 turn(s).
+224,Sharpen,Typeless,Status Effect,0,100,1,Raises the user’s Melee Attack.
+225,Shear Luck,Typeless,Miscellaneous,0,100,0,The user’s Evasion is passively raised in proportion to the amount of HP lost.
+226,Shield Bash,Metal,Melee Attack,90,100,3,Hits one target. Uses the user’s Melee Defence stat instead of Melee Attack.
+227,Shooting Star,Astral,Ranged Attack,60,100,2,Hits one target.
+228,Shrapnel,Metal,Status Effect,0,100,1,Damages the target each time it transforms.
+229,Silicon Slash,Glass,Melee Attack,60,100,2,Hits one target.
+230,Sleep Talk,Typeless,Ranged Attack,120,1,0,Hits one target.
+231,Sleep Walk,Typeless,Melee Attack,120,1,0,Hits one target.
+232,Slice,Typeless,Melee Attack,30,100,1,Hits a whole team.
+233,Smack,Typeless,Melee Attack,30,100,0,Hits one target.
+234,Snooze Spore,Plant,Status Effect,0,50,2,Gives the target Sleep status for 3 turn(s).
+235,Snow Rush,Ice,Melee Attack,60,100,3,Hits one target. Lowers the target’s Speed.
+236,Sonic Boom,Air,Ranged Attack,60,100,3,Hits a whole team.
+237,Spit,Typeless,Ranged Attack,30,100,0,Hits one target.
+238,Splinter,Plant,Melee Attack,15,-1,0,Chance to hurt an opponent automatically upon melee contact. Damage is based on the user’s Melee Defence.
+239,Spray,Typeless,Ranged Attack,30,100,1,Hits a whole team.
+240,Spring-Load,Plastic,Status Effect,0,-1,0,Automatically gives the user the Spring-Loaded status if they don’t already have it. This turns the user’s melee attack into ranged attacks.
+241,Sprint,Typeless,Status Effect,0,100,1,Raises the user’s Speed.
+242,Stab In The Dark,Typeless,Melee Attack,100,10,0,Hits one target.
+243,Status Resistance,Metal,Miscellaneous,0,100,0,"The user takes reduced damage from the Burned, Poisoned, and Leeched status effects."
+244,Sticker Trick,Glitter,Status Effect,0,100,3,Replaces the last move the target used with Booby Trap. Booby Trap damages the user.
+245,Sticky Spray,Poison,Status Effect,0,100,3,Gives the target Evasion Nullified status for 3 turn(s).
+246,Sticky Tongue,Beast,Melee Attack,40,75,1,Hits one target. Lowers the target’s Evasion.
+247,Stony Look,Earth,Status Effect,0,50,2,Gives the target Petrified status for 3 turn(s).
+248,Sturdy Armour,Metal,Miscellaneous,0,100,0,Prevents the user’s Melee and Ranged Defence stats from being lowered.
+249,Suction Cup Dart,Plastic,Ranged Attack,120,75,4,Hits one target.
+250,Sugar Rush,Typeless,Miscellaneous,0,100,0,The user’s Speed is passively raised in proportion to the amount of HP lost.
+251,Suit Up,Typeless,Status Effect,0,-1,2,Raises the user’s Melee Defence and Ranged Defence.
+252,Summon Tulpa,Astral,Miscellaneous,0,1,0,Calls for help from the astral plane.
+253,Superheated Fist,Fire,Melee Attack,60,100,2,Hits one target.
+254,Sure-Fire,Fire,Status Effect,0,100,2,Guarantees the target’s next move won’t miss.
+255,Taunt,Poison,Status Effect,0,100,1,"Sends the target berserk, forcing it to use only damaging moves for its next 2 turns."
+256,The Old 1-2,Typeless,Melee Attack,60,100,5,Hits each member of a team multiple times.
+257,Throw,Typeless,Ranged Attack,50,100,0,Uses a wall as a projectile. Remaining duration multiplies damage.
+258,Thunder Blast,Lightning,Ranged Attack,60,100,3,Hits one target. The target is hit by an additional 30 Air-type damage.
+259,Torrent,Water,Ranged Attack,40,100,4,Hits each member of a team multiple times.
+260,Tower Defence,Earth,Status Effect,0,100,0,"Changes the user’s type to Earth, and raises their Defence stats. Takes effect the first time the user’s health falls below half."
+261,Toxic Stab,Poison,Melee Attack,90,100,4,Hits one target. Poisons the target.
+262,Toy Hammer,Plastic,Melee Attack,60,100,2,Hits one target.
+263,Traffic Jam,Plastic,Status Effect,0,-1,2,Lowers all other fighters’ Speed stats.
+264,Trap Jaw,Beast,Status Effect,0,50,0,Automatically used after Bite. Inflicts the target with Evasion Nullified.
+265,Treasure Dig,Earth,Miscellaneous,0,50,2,Digs up a random item. The winner of the battle gets to keep the item.
+266,Treat,Typeless,Status Effect,0,-1,1,Gives the target a random buff.
+267,Trick,Typeless,Status Effect,0,100,1,Gives the target a random debuff.
+268,Trip,Typeless,Status Effect,0,100,1,Lowers the target’s Speed.
+269,Tripwire,Metal,Miscellaneous,0,100,0,"Chance to automatically use the next move in the list, for 0 AP, when an opponent uses a melee attack. The chance is reduced in proportion to the move’s normal AP cost."
+270,Two Heads,Typeless,Status Effect,0,100,2,Used automatically at the start of battle for 0 AP. Gives the user Multistrike status for 3 turn(s).
+271,Undertow,Water,Ranged Attack,90,100,2,Hits the last fighter to take their turn before this move.
+272,Unicast,Lightning,Status Effect,0,100,2,Gives the target Unitarget status for 3 turn(s).
+273,Unshakeable,Earth,Miscellaneous,0,100,0,Prevents the user from being inflicted with Flinched.
+274,Vampire,Beast,Miscellaneous,0,100,0,The user gains half the benefit of opponents’ healing moves and status effects.
+275,Vengeful Curse,Astral,Status Effect,0,100,0,Automatically inflicts 3 random debuffs on the last opponent to hit the user upon defeat.
+276,Wallop,Typeless,Melee Attack,60,100,2,Hits one target.
+277,Water Camouflage,Water,Status Effect,0,100,2,Changes the type of the user. Automatically used at the start of battle for 0 AP.
+278,Water Coating,Water,Status Effect,0,100,2,Changes the type of the user or an ally.
+279,Water Dance,Water,Melee Attack,90,85,2,Hits one target. Uses the user’s Speed stat instead of Melee Attack.
+280,Water Wall,Water,Status Effect,0,100,2,Sacrifice 20% of HP to create a wall that will absorb up to 3 hits for up to 3 turns.
+281,Waterproof,Water,Miscellaneous,0,100,0,"Passively reduces incoming Water-type damage by 50%, and negates any reactions that would occur. Does not affect critical hits."
+282,Waterworks,Water,Ranged Attack,100,90,5,Hits everyone on the battlefield except the user.
+283,Web Wrap,Poison,Status Effect,0,20,0,Gives the target Tape Jam status for 3 turn(s).
+284,Window,Glass,Status Effect,0,100,1,Allows Ranged Attacks to hit the target through walls.
+285,Wink,Typeless,Status Effect,0,100,1,Lowers the target’s Melee Attack.
+286,Wonderful 7,Astral,Ranged Attack,90,100,4,Hits one target. Inflicts a random debuff.
+287,Woodcutter,Plant,Melee Attack,40,100,3,Hits one target multiple times.
+288,Yule Regret That,Ice,Ranged Attack,60,100,4,Hits one target. Lands a critical hit if the target has already taken damage this turn.
+289,Zephyr,Air,Ranged Attack,60,100,2,Hits one target.
+290,Zoomies,Beast,Melee Attack,30,100,1,Hits one target. Takes priority over other moves.

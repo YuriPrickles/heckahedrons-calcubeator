@@ -1,0 +1,1113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StickerLoad</class>
+ <widget class="QMainWindow" name="StickerLoad">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>502</width>
+    <height>348</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Party Editor</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Triangular</enum>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Triangular</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
+      <property name="usesScrollButtons">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="tape1">
+       <attribute name="title">
+        <string>Tape #1</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="MONSTER1">
+          <item>
+           <layout class="QVBoxLayout" name="MonsterInfo_1">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <property name="bottomMargin">
+             <number>128</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="ml_1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Selected Monster</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QComboBox" name="mcb_1">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="mct_1">
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Beast</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Air</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Astral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Earth</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fire</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ice</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lightning</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Metal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plastic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Poison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Water</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glass</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glitter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="m_info_1">
+              <property name="font">
+               <font>
+                <family>Consolas</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stats will be displayed here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="MonsterStickers_1">
+            <item>
+             <widget class="QComboBox" name="c1_m_1"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c2_m_1"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c3_m_1"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c4_m_1"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c5_m_1"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c6_m_1"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c7_m_1"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c8_m_1"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tape2">
+       <attribute name="title">
+        <string>Tape #2</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="MONSTER2">
+          <item>
+           <layout class="QVBoxLayout" name="MonsterInfo_2">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>128</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="ml_2">
+              <property name="text">
+               <string>Selected Monster</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QComboBox" name="mcb_2"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="mct_2">
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Beast</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Air</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Astral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Earth</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fire</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ice</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lightning</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Metal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plastic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Poison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Water</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glass</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glitter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="m_info_2">
+              <property name="font">
+               <font>
+                <family>Consolas</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stats will be displayed here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="MonsterStickers_2">
+            <item>
+             <widget class="QComboBox" name="c1_m_2"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c2_m_2"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c3_m_2"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c4_m_2"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c5_m_2"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c6_m_2"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c7_m_2"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c8_m_2"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tape3">
+       <attribute name="title">
+        <string>Tape #3</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="MONSTER3">
+          <item>
+           <layout class="QVBoxLayout" name="MonsterInfo_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>128</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="ml_3">
+              <property name="text">
+               <string>Selected Monster</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <widget class="QComboBox" name="mcb_3"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="mct_3">
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Beast</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Air</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Astral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Earth</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fire</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ice</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lightning</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Metal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plastic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Poison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Water</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glass</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glitter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="m_info_3">
+              <property name="font">
+               <font>
+                <family>Consolas</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stats will be displayed here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="MonsterStickers_3">
+            <item>
+             <widget class="QComboBox" name="c1_m_3"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c2_m_3"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c3_m_3"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c4_m_3"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c5_m_3"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c6_m_3"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c7_m_3"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c8_m_3"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tape4">
+       <attribute name="title">
+        <string>Tape #4</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <layout class="QHBoxLayout" name="MONSTER4">
+          <item>
+           <layout class="QVBoxLayout" name="MonsterInfo_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>128</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="ml_4">
+              <property name="text">
+               <string>Selected Monster</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QComboBox" name="mcb_4"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="mct_4">
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Beast</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Air</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Astral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Earth</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fire</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ice</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lightning</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Metal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plastic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Poison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Water</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glass</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glitter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="m_info_4">
+              <property name="font">
+               <font>
+                <family>Consolas</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stats will be displayed here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="MonsterStickers_4">
+            <item>
+             <widget class="QComboBox" name="c1_m_4"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c2_m_4"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c3_m_4"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c4_m_4"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c5_m_4"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c6_m_4"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c7_m_4"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c8_m_4"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tape5">
+       <attribute name="title">
+        <string>Tape #5</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <layout class="QHBoxLayout" name="MONSTER5">
+          <item>
+           <layout class="QVBoxLayout" name="MonsterInfo_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>128</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="ml_5">
+              <property name="text">
+               <string>Selected Monster</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <widget class="QComboBox" name="mcb_5"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="mct_5">
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Beast</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Air</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Astral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Earth</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fire</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ice</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lightning</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Metal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plastic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Poison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Water</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glass</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glitter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="m_info_5">
+              <property name="font">
+               <font>
+                <family>Consolas</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stats will be displayed here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="MonsterStickers_7">
+            <item>
+             <widget class="QComboBox" name="c1_m_5"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c2_m_5"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c3_m_5"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c4_m_5"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c5_m_5"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c6_m_5"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c7_m_5"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c8_m_5"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tape6">
+       <attribute name="title">
+        <string>Tape #6</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <layout class="QHBoxLayout" name="MONSTER6">
+          <item>
+           <layout class="QVBoxLayout" name="MonsterInfo_6">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>128</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="ml_6">
+              <property name="text">
+               <string>Selected Monster</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <item>
+               <widget class="QComboBox" name="mcb_6"/>
+              </item>
+              <item>
+               <widget class="QComboBox" name="mct_6">
+                <property name="currentIndex">
+                 <number>-1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Beast</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Air</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Astral</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Earth</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Fire</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Ice</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Lightning</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Metal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plant</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Plastic</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Poison</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Water</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glass</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Glitter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="m_info_6">
+              <property name="font">
+               <font>
+                <family>Consolas</family>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stats will be displayed here</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="MonsterStickers_6">
+            <item>
+             <widget class="QComboBox" name="c1_m_6"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c2_m_6"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c3_m_6"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c4_m_6"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c5_m_6"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c6_m_6"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c7_m_6"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="c8_m_6"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>502</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuSpoiler_Settings">
+     <property name="title">
+      <string>Spoiler Settings</string>
+     </property>
+     <addaction name="actionSecrets"/>
+     <addaction name="actionUnique_Monsters"/>
+     <addaction name="actionPost_Game"/>
+     <addaction name="actionPier_Of_The_Unknown_DLC"/>
+     <addaction name="actionSunshine_Update"/>
+    </widget>
+    <widget class="QMenu" name="menuExtra_Settings">
+     <property name="title">
+      <string>Extra Settings</string>
+     </property>
+     <addaction name="actionAll_Stickers_Compatible"/>
+    </widget>
+    <addaction name="menuSpoiler_Settings"/>
+    <addaction name="menuExtra_Settings"/>
+    <addaction name="separator"/>
+    <addaction name="actionExport_Party"/>
+    <addaction name="actionImport_Party"/>
+   </widget>
+   <addaction name="menuTools"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSecrets">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Secrets</string>
+   </property>
+  </action>
+  <action name="actionUnique_Monsters">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Unique Monsters</string>
+   </property>
+  </action>
+  <action name="actionPost_Game">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Post-Game</string>
+   </property>
+  </action>
+  <action name="actionPier_Of_The_Unknown_DLC">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Pier Of The Unknown DLC</string>
+   </property>
+  </action>
+  <action name="actionSunshine_Update">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Sunshine Update</string>
+   </property>
+  </action>
+  <action name="actionAll_Stickers_Compatible">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>All Stickers Compatible</string>
+   </property>
+  </action>
+  <action name="actionBeast">
+   <property name="text">
+    <string>Beast</string>
+   </property>
+  </action>
+  <action name="actionBeast_2">
+   <property name="text">
+    <string>Beast</string>
+   </property>
+  </action>
+  <action name="actionAir">
+   <property name="text">
+    <string>Air</string>
+   </property>
+  </action>
+  <action name="actionAstral">
+   <property name="text">
+    <string>Astral</string>
+   </property>
+  </action>
+  <action name="actionEarth">
+   <property name="text">
+    <string>Earth</string>
+   </property>
+  </action>
+  <action name="actionFire">
+   <property name="text">
+    <string>Fire</string>
+   </property>
+  </action>
+  <action name="actionIce">
+   <property name="text">
+    <string>Ice</string>
+   </property>
+  </action>
+  <action name="actionExport_Party">
+   <property name="text">
+    <string>Export Party</string>
+   </property>
+  </action>
+  <action name="actionImport_Party">
+   <property name="text">
+    <string>Import Party</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
