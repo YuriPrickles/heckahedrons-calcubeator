@@ -27,33 +27,11 @@ wirral = mysql.connector.connect(
     database="wirral",
     allow_local_infile=True
 )
-mycursor = wirral.cursor()
+mycursor = wirral.cursor(prepared=True)
 
 
 def newLeaf():
-    otherCursor = wirral.cursor()
     directory = os.getcwd().replace("\\","/") + "/cbCSVs/"
-    stmt = ('drop table monster_has_tag;'
-            'drop table sticker_has_tag;'
-            'drop table monster;'
-            'drop table sticker;'
-            'drop table tag;'
-            'drop table characterBattler;'
-             'SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;'
-             'SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=\'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION\';'
-             'CREATE SCHEMA IF NOT EXISTS `wirral` ;'
-             'USE `wirral` ;'
-             'CREATE TABLE IF NOT EXISTS `wirral`.`monster` (  `bestiaryID` VARCHAR(50) NULL,  `monsterID` INT NOT NULL,  `name` VARCHAR(100) NULL,  `type` VARCHAR(50) NULL,  `maxHP` INT NULL,  `mATK` INT NULL,  `mDEF` INT NULL,  `rATK` INT NULL,  `rDEF` INT NULL,  `speed` INT NULL,  PRIMARY KEY (`monsterID`)) ENGINE = InnoDB;'
-             'CREATE TABLE IF NOT EXISTS `wirral`.`sticker` (  `stickerID` INT NOT NULL AUTO_INCREMENT,  `name` VARCHAR(100) NULL,  `type` VARCHAR(100) NULL,  `category` VARCHAR(100) NULL,  `power` INT NULL,  `accuracy` INT NULL,  `apCost` INT NULL,  `description` TEXT(256) NULL,  PRIMARY KEY (`stickerID`)) ENGINE = InnoDB;'
-             'CREATE TABLE IF NOT EXISTS `wirral`.`tag` (  `tagName` VARCHAR(100) NULL,  `tagID` INT NOT NULL AUTO_INCREMENT,  PRIMARY KEY (`tagID`))ENGINE = InnoDB;'
-             'CREATE TABLE IF NOT EXISTS `wirral`.`monster_has_tag` (  `monster_monsterID` INT NOT NULL,  `tag_tagID` INT NOT NULL,  PRIMARY KEY (`monster_monsterID`, `tag_tagID`),  INDEX `fk_monster_has_tag_tag1_idx` (`tag_tagID` ASC) VISIBLE,  INDEX `fk_monster_has_tag_monster_idx` (`monster_monsterID` ASC) VISIBLE,  CONSTRAINT `fk_monster_has_tag_monster`    FOREIGN KEY (`monster_monsterID`)    REFERENCES `wirral`.`monster` (`monsterID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION,  CONSTRAINT `fk_monster_has_tag_tag1`    FOREIGN KEY (`tag_tagID`)    REFERENCES `wirral`.`tag` (`tagID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION)ENGINE = InnoDB;'
-             'CREATE TABLE IF NOT EXISTS `wirral`.`sticker_has_tag` (  `sticker_stickerID` INT NOT NULL,  `tag_tagID` INT NOT NULL,  PRIMARY KEY (`sticker_stickerID`, `tag_tagID`),  INDEX `fk_sticker_has_tag_tag1_idx` (`tag_tagID` ASC) VISIBLE,  INDEX `fk_sticker_has_tag_sticker1_idx` (`sticker_stickerID` ASC) VISIBLE,  CONSTRAINT `fk_sticker_has_tag_sticker1`    FOREIGN KEY (`sticker_stickerID`)    REFERENCES `wirral`.`sticker` (`stickerID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION,  CONSTRAINT `fk_sticker_has_tag_tag1`    FOREIGN KEY (`tag_tagID`)    REFERENCES `wirral`.`tag` (`tagID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION)ENGINE = InnoDB;'
-             'CREATE TABLE IF NOT EXISTS `wirral`.`characterBattler` (  `characterID` INT NOT NULL AUTO_INCREMENT,  `name` VARCHAR(99) NULL,  `maxhp` INT NULL,  `matk` INT NULL,  `mdef` INT NULL,  `ratk` INT NULL,  `rdef` INT NULL,  `speed` INT NULL,  PRIMARY KEY (`characterID`))ENGINE = InnoDB;'
-             'SET SQL_MODE=@OLD_SQL_MODE;SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;alter table tag auto_increment = 1;alter table sticker auto_increment = 1;alter table wirral.characterBattler auto_increment = 1;'
-
-            )
-    otherCursor.execute(stmt)
-    wirral.commit()
     nameArray = [("Stickers","sticker"),
                  ("Monsters","monster"),
                  ("Tags","tag"),
@@ -61,20 +39,69 @@ def newLeaf():
                  ("monsterTag","monster_has_tag"),
                  ("Characters","characterBattler")
                  ]
-    otherCursor.close()
     awesomeCursor = wirral.cursor(prepared=True)
-    with open(directory + 'evilTags.csv', "r") as dataFile:
-        read = csv.DictReader(dataFile)
-        print(read)
-        tagArray=[]
+    awesomeCursor.execute("DELETE FROM sticker_has_tag WHERE sticker_stickerID > -1")
+    awesomeCursor.execute("DELETE FROM monster_has_tag WHERE monster_monsterID > -1")
+    awesomeCursor.execute("DELETE FROM tag WHERE tagID > -1")
+    awesomeCursor.execute("DELETE FROM sticker WHERE stickerID > -1")
+    awesomeCursor.execute("DELETE FROM monster WHERE monsterID > -2")
+    awesomeCursor.execute("DELETE FROM characterBattler WHERE characterID > -1")
+    awesomeCursor.execute("ALTER TABLE tag auto_increment = 0")
+    awesomeCursor.execute("ALTER TABLE sticker auto_increment = 0")
+    awesomeCursor.execute("ALTER TABLE characterBattler auto_increment = 0")
+    wirral.commit()
+    with open(directory + 'Tags.csv', "r") as dataFile:
+        read = csv.reader(dataFile)
+        header = read.__next__()
         for row in read:
-            rawString = row['tagName']
-            tagArray.append(tuple(rawString))
-        testArray = ('balls',1)
-        for tag in tagArray:
-            sql = "INSERT INTO tag VALUES (%s)"
-            #awesomeCursor.execute(sql,tag)
-    wirral.cursor(prepared=True).execute("INSERT INTO tag (tagName) VALUES ( %s )", ("balls",))
+            print(row)
+            sql = "INSERT INTO tag (tagName) VALUES ( %s )"
+            wirral.cursor(prepared=True).execute(sql,row)
+    print("hi")
+    wirral.commit()
+    with open(directory + 'Monsters.csv', "r") as dataFile:
+        read = csv.reader(dataFile)
+        header = read.__next__()
+        for row in read:
+            print(row)
+            sql = "INSERT INTO monster VALUES ( %s , %s , %s , %s , %s , %s , %s , %s , %s , %s )"
+            wirral.cursor(prepared=True).execute(sql,row)
+    print("hi")
+    wirral.commit()
+    with open(directory + 'Stickers.csv', "r") as dataFile:
+        read = csv.reader(dataFile)
+        header = read.__next__()
+        for row in read:
+            print(row)
+            sql = "INSERT INTO sticker VALUES ( %s , %s , %s , %s , %s , %s , %s , %s)"
+            wirral.cursor(prepared=True).execute(sql,row)
+    print("hi")
+    wirral.commit()
+    with open(directory + 'stickerTag.csv', "r") as dataFile:
+        read = csv.reader(dataFile)
+        header = read.__next__()
+        for row in read:
+            print(row)
+            sql = "INSERT INTO sticker_has_tag VALUES ( %s , %s )"
+            wirral.cursor(prepared=True).execute(sql,row)
+    print("hi")
+    wirral.commit()
+    with open(directory + 'monsterTag.csv', "r") as dataFile:
+        read = csv.reader(dataFile)
+        header = read.__next__()
+        for row in read:
+            print(row)
+            sql = "INSERT INTO monster_has_tag VALUES ( %s , %s )"
+            wirral.cursor(prepared=True).execute(sql,row)
+    print("hi")
+    wirral.commit()
+    with open(directory + 'Characters.csv', "r") as dataFile:
+        read = csv.reader(dataFile)
+        header = read.__next__()
+        for row in read:
+            print(row)
+            sql = "INSERT INTO characterBattler VALUES ( %s , %s , %s , %s , %s , %s , %s , %s)"
+            wirral.cursor(prepared=True).execute(sql,row)
     print("hi")
     wirral.commit()
 
@@ -417,7 +444,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                     print("Emergency Traffikrab!")
                     monsterID = self.mcb_1.itemData(self.mcb_1.findText("Traffikrab"))
                     self.mcb_1.setCurrentIndex(self.mcb_1.findText("Traffikrab"))
-                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = {monsterID}")
+                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = %s ",(monsterID,))
                 mInfo = mycursor.fetchone()
                 labelText = (f"Natural Type : {mInfo[3]}\n"
                              f"Max HP       : {mInfo[4]}\n"
@@ -430,12 +457,12 @@ class Party(QMainWindow, Ui_StickerLoad):
                 if self.forceNaturalType:
                     self.mct_1.setCurrentIndex(getTypeIndex(mInfo[3],True))
                     self.forceNaturalType = False
-                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = {monsterID}")
+                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = %s ", (monsterID,))
                 monsterTags = mycursor.fetchall()
                 print(monsterTags)
                 stickerIDs = []
                 for k in monsterTags:
-                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = {k[0]} or tag_tagID = 168 or tag_tagID = {typeTagToCheck(self.mct_1.currentText())}")
+                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_1.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
                         stickerIDs.append(p[0])
@@ -478,7 +505,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                     print("Emergency Traffikrab!")
                     monsterID = self.mcb_2.itemData(self.mcb_2.findText("Traffikrab"))
                     self.mcb_2.setCurrentIndex(self.mcb_2.findText("Traffikrab"))
-                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = {monsterID}")
+                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = %s ",(monsterID,))
                 mInfo = mycursor.fetchone()
                 labelText = (f"Natural Type : {mInfo[3]}\n"
                              f"Max HP       : {mInfo[4]}\n"
@@ -491,13 +518,12 @@ class Party(QMainWindow, Ui_StickerLoad):
                 if self.forceNaturalType:
                     self.mct_2.setCurrentIndex(getTypeIndex(mInfo[3], True))
                     self.forceNaturalType = False
-                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = {monsterID}")
+                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = %s ",(monsterID,))
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
                 for k in monsterTags:
-                    mycursor.execute(
-                        f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = {k[0]} or tag_tagID = 168 or tag_tagID = {typeTagToCheck(self.mct_2.currentText())}")
+                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_2.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
                         stickerIDs.append(p[0])
@@ -538,7 +564,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                     print("Emergency Traffikrab!")
                     monsterID = self.mcb_3.itemData(self.mcb_3.findText("Traffikrab"))
                     self.mcb_3.setCurrentIndex(self.mcb_3.findText("Traffikrab"))
-                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = {monsterID}")
+                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = %s ",(monsterID,))
                 mInfo = mycursor.fetchone()
                 labelText = (f"Natural Type : {mInfo[3]}\n"
                              f"Max HP       : {mInfo[4]}\n"
@@ -551,12 +577,12 @@ class Party(QMainWindow, Ui_StickerLoad):
                 if self.forceNaturalType:
                     self.mct_3.setCurrentIndex(getTypeIndex(mInfo[3],True))
                     self.forceNaturalType = False
-                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = {monsterID}")
+                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = %s ",(monsterID,))
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
                 for k in monsterTags:
-                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = {k[0]} or tag_tagID = 168 or tag_tagID = {typeTagToCheck(self.mct_3.currentText())}")
+                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_3.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
                         stickerIDs.append(p[0])
@@ -597,7 +623,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                     print("Emergency Traffikrab!")
                     monsterID = self.mcb_4.itemData(self.mcb_4.findText("Traffikrab"))
                     self.mcb_4.setCurrentIndex(self.mcb_4.findText("Traffikrab"))
-                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = {monsterID}")
+                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = %s ",(monsterID,))
                 mInfo = mycursor.fetchone()
                 labelText = (f"Natural Type : {mInfo[3]}\n"
                              f"Max HP       : {mInfo[4]}\n"
@@ -610,12 +636,12 @@ class Party(QMainWindow, Ui_StickerLoad):
                 if self.forceNaturalType:
                     self.mct_4.setCurrentIndex(getTypeIndex(mInfo[3],True))
                     self.forceNaturalType = False
-                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = {monsterID}")
+                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = %s ",(monsterID,))
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
                 for k in monsterTags:
-                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = {k[0]} or tag_tagID = 168 or tag_tagID = {typeTagToCheck(self.mct_4.currentText())}")
+                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_4.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
                         stickerIDs.append(p[0])
@@ -656,7 +682,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                     print("Emergency Traffikrab!")
                     monsterID = self.mcb_5.itemData(self.mcb_5.findText("Traffikrab"))
                     self.mcb_5.setCurrentIndex(self.mcb_5.findText("Traffikrab"))
-                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = {monsterID}")
+                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = %s ",(monsterID,))
                 mInfo = mycursor.fetchone()
                 labelText = (f"Natural Type : {mInfo[3]}\n"
                              f"Max HP       : {mInfo[4]}\n"
@@ -669,12 +695,12 @@ class Party(QMainWindow, Ui_StickerLoad):
                 if self.forceNaturalType:
                     self.mct_5.setCurrentIndex(getTypeIndex(mInfo[3],True))
                     self.forceNaturalType = False
-                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = {monsterID}")
+                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = %s ",(monsterID,))
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
                 for k in monsterTags:
-                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = {k[0]} or tag_tagID = 168 or tag_tagID = {typeTagToCheck(self.mct_5.currentText())}")
+                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_5.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
                         stickerIDs.append(p[0])
@@ -715,7 +741,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                     print("Emergency Traffikrab!")
                     monsterID = self.mcb_6.itemData(self.mcb_6.findText("Traffikrab"))
                     self.mcb_6.setCurrentIndex(self.mcb_6.findText("Traffikrab"))
-                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = {monsterID}")
+                mycursor.execute(f"SELECT * FROM monster WHERE monsterID = %s ",(monsterID,))
                 mInfo = mycursor.fetchone()
                 labelText = (f"Natural Type : {mInfo[3]}\n"
                              f"Max HP       : {mInfo[4]}\n"
@@ -728,12 +754,12 @@ class Party(QMainWindow, Ui_StickerLoad):
                 if self.forceNaturalType:
                     self.mct_6.setCurrentIndex(getTypeIndex(mInfo[3],True))
                     self.forceNaturalType = False
-                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = {monsterID}")
+                mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = %s ",(monsterID,))
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
                 for k in monsterTags:
-                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = {k[0]} or tag_tagID = 168 or tag_tagID = {typeTagToCheck(self.mct_6.currentText())}")
+                    mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_6.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
                         stickerIDs.append(p[0])
