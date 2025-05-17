@@ -294,6 +294,7 @@ class MainMenu(QMainWindow, Ui_MainMenu):
         pass
 class Party(QMainWindow, Ui_StickerLoad):
     tabSelected = 0
+    updating = False
     listArray = []
     forceNaturalType = True
     tabHasBeenInitialized = [False, False, False, False, False, False]
@@ -306,6 +307,12 @@ class Party(QMainWindow, Ui_StickerLoad):
                 w.setEditable(True)
         uic.loadUi("ui/stickerLoadout.ui")
         self.tabSelected = self.tabWidget.currentIndex()
+        self.tabWidget.currentChanged.connect(self.tabChange)
+        self.actionSecrets.checkableChanged.connect(self.updateMonsterList)
+        self.actionUnique_Monsters.checkableChanged.connect(self.updateMonsterList)
+        self.actionPost_Game.checkableChanged.connect(self.updateMonsterList)
+        self.actionPier_Of_The_Unknown_DLC.checkableChanged.connect(self.updateMonsterList)
+        self.actionSunshine_Update.checkableChanged.connect(self.updateMonsterList)
         self.mcb_1.currentIndexChanged.connect(self.setForceNaturalType)
         self.mcb_1.currentIndexChanged.connect(self.changeStickers)
         self.mct_1.currentIndexChanged.connect(self.changeStickers)
@@ -324,12 +331,6 @@ class Party(QMainWindow, Ui_StickerLoad):
         self.mcb_6.currentIndexChanged.connect(self.setForceNaturalType)
         self.mcb_6.currentIndexChanged.connect(self.changeStickers)
         self.mct_6.currentIndexChanged.connect(self.changeStickers)
-        self.tabWidget.currentChanged.connect(self.tabChange)
-        self.actionSecrets.checkableChanged.connect(self.updateMonsterList)
-        self.actionUnique_Monsters.checkableChanged.connect(self.updateMonsterList)
-        self.actionPost_Game.checkableChanged.connect(self.updateMonsterList)
-        self.actionPier_Of_The_Unknown_DLC.checkableChanged.connect(self.updateMonsterList)
-        self.actionSunshine_Update.checkableChanged.connect(self.updateMonsterList)
 
         self.actionExport_Party.triggered.connect(self.saveParty)
         self.actionImport_Party.triggered.connect(self.importParty)
@@ -405,8 +406,17 @@ class Party(QMainWindow, Ui_StickerLoad):
 
 
     def updateMonsterList(self):
-        mycursor.execute("SELECT name, monsterID FROM monster WHERE monsterID > -1 and monsterID not between 132 and 151 " + self.spoilerAvoider())
+
+        baseStatement = "SELECT name, monsterID FROM monster WHERE monsterID > -1 and monsterID not between 132 and 151"
+        mycursor.execute(baseStatement + self.spoilerAvoider())
         items = mycursor.fetchall()
+        self.listArray.clear()
+        self.mcb_1.clear()
+        self.mcb_2.clear()
+        self.mcb_3.clear()
+        self.mcb_4.clear()
+        self.mcb_5.clear()
+        self.mcb_6.clear()
         for i in items:
             self.listArray.append(i[0])
             self.mcb_1.addItem(i[0],i[1])
@@ -415,28 +425,37 @@ class Party(QMainWindow, Ui_StickerLoad):
             self.mcb_4.addItem(i[0],i[1])
             self.mcb_5.addItem(i[0],i[1])
             self.mcb_6.addItem(i[0],i[1])
+        self.mcb_1.repaint()
+        self.mcb_2.repaint()
+        self.mcb_3.repaint()
+        self.mcb_4.repaint()
+        self.mcb_5.repaint()
+        self.mcb_6.repaint()
     def tabChange(self):
         self.tabSelected = self.tabWidget.currentIndex()
         print(self.tabSelected)
+        self.updating = True
+        self.updateMonsterList()
+        self.updating = False
         if not self.tabHasBeenInitialized[self.tabSelected]:
             self.forceNaturalType = True
-            self.updateMonsterList()
             self.changeStickers()
             self.tabHasBeenInitialized[self.tabSelected] = True
     def spoilerAvoider(self) -> str:
         spoiler = ""
         if not self.actionSecrets.isChecked():
-            spoiler += "and monsterID != 0 "
+            spoiler += " and monsterID != 0"
         if not self.actionUnique_Monsters.isChecked():
-            spoiler += "and monsterID != 110 and monsterID != 111 and monsterID != 117 and monsterID != 118 and monsterID != 119 and monsterID != 128 "
+            spoiler += " and monsterID != 110 and monsterID != 111 and monsterID != 117 and monsterID != 118 and monsterID != 119 and monsterID != 128"
         if not self.actionPost_Game.isChecked():
-            spoiler += "and monsterID != 120 "
+            spoiler += " and monsterID != 120"
         if not self.actionPier_Of_The_Unknown_DLC.isChecked():
-            spoiler += "and monsterID not between 152 and 163 "
+            spoiler += " and monsterID not between 152 and 163"
         if not self.actionSunshine_Update.isChecked():
-            spoiler += "and monsterID not between 129 and 131 "
+            spoiler += " and monsterID not between 129 and 131"
         return spoiler
     def changeStickers(self):
+        if self.updating: return
         match self.tabSelected:
             case 0:
                 monsterID = self.mcb_1.currentData()

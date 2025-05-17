@@ -38,7 +38,17 @@ class Ui_MainMenu(object):
         MainMenu.setStatusBar(self.statusbar)
         self.actionCreate_Reset_Local_Database = QtGui.QAction(parent=MainMenu)
         self.actionCreate_Reset_Local_Database.setObjectName("actionCreate_Reset_Local_Database")
+        self.actionCreate_Database_Tables = QtGui.QAction(parent=MainMenu)
+        self.actionCreate_Database_Tables.setObjectName("actionCreate_Database_Tables")
+        self.actionAdd_Monster_Data = QtGui.QAction(parent=MainMenu)
+        self.actionAdd_Monster_Data.setObjectName("actionAdd_Monster_Data")
+        self.actionAdd_Sticker_Data = QtGui.QAction(parent=MainMenu)
+        self.actionAdd_Sticker_Data.setObjectName("actionAdd_Sticker_Data")
         self.menuTools.addAction(self.actionCreate_Reset_Local_Database)
+        self.menuTools.addAction(self.actionCreate_Database_Tables)
+        self.menuTools.addSeparator()
+        self.menuTools.addAction(self.actionAdd_Monster_Data)
+        self.menuTools.addAction(self.actionAdd_Sticker_Data)
         self.menubar.addAction(self.menuTools.menuAction())
 
         self.retranslateUi(MainMenu)
@@ -53,7 +63,10 @@ class Ui_MainMenu(object):
         self.sLoadoutButton.setText(_translate("MainMenu", "Party Editor"))
         self.sLoadoutButton.setDescription(_translate("MainMenu", "Select Monsters and equip stickers on them, without the hassle of the 2000 uncommons cluttering the menu."))
         self.menuTools.setTitle(_translate("MainMenu", "Tools"))
-        self.actionCreate_Reset_Local_Database.setText(_translate("MainMenu", "Create/Reset Database (Restart Required)"))
+        self.actionCreate_Reset_Local_Database.setText(_translate("MainMenu", "Reset Database"))
+        self.actionCreate_Database_Tables.setText(_translate("MainMenu", "Create Database Tables"))
+        self.actionAdd_Monster_Data.setText(_translate("MainMenu", "Add Monster Data"))
+        self.actionAdd_Sticker_Data.setText(_translate("MainMenu", "Add Sticker Data"))
 
 
 if __name__ == "__main__":

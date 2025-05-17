@@ -56,13 +56,32 @@ Does not support Fusions right now.</string>
      <string>Tools</string>
     </property>
     <addaction name="actionCreate_Reset_Local_Database"/>
+    <addaction name="actionCreate_Database_Tables"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_Monster_Data"/>
+    <addaction name="actionAdd_Sticker_Data"/>
    </widget>
    <addaction name="menuTools"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreate_Reset_Local_Database">
    <property name="text">
-    <string>Create/Reset Database (Restart Required)</string>
+    <string>Reset Database</string>
+   </property>
+  </action>
+  <action name="actionCreate_Database_Tables">
+   <property name="text">
+    <string>Create Database Tables</string>
+   </property>
+  </action>
+  <action name="actionAdd_Monster_Data">
+   <property name="text">
+    <string>Add Monster Data</string>
+   </property>
+  </action>
+  <action name="actionAdd_Sticker_Data">
+   <property name="text">
+    <string>Add Sticker Data</string>
    </property>
   </action>
  </widget>
