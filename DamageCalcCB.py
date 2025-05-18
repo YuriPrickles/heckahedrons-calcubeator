@@ -15,6 +15,8 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import QByteArray
 from main_window_ui import Ui_MainWindow
 from monster_select_ui import Ui_Dialog
+from CustomMonster import Ui_CustomMonster
+from CustomSticker import Ui_StickerMaker
 from mainMenu import Ui_MainMenu
 from stickerLoad import Ui_StickerLoad
 from cstatm import CustomStatMaker
@@ -32,13 +34,6 @@ mycursor = wirral.cursor(prepared=True)
 
 def newLeaf():
     directory = os.getcwd().replace("\\","/") + "/cbCSVs/"
-    nameArray = [("Stickers","sticker"),
-                 ("Monsters","monster"),
-                 ("Tags","tag"),
-                 ("stickerTag","sticker_has_tag"),
-                 ("monsterTag","monster_has_tag"),
-                 ("Characters","characterBattler")
-                 ]
     awesomeCursor = wirral.cursor(prepared=True)
     awesomeCursor.execute("DELETE FROM sticker_has_tag WHERE sticker_stickerID > -1")
     awesomeCursor.execute("DELETE FROM monster_has_tag WHERE monster_monsterID > -1")
@@ -47,6 +42,7 @@ def newLeaf():
     awesomeCursor.execute("DELETE FROM monster WHERE monsterID > -2")
     awesomeCursor.execute("DELETE FROM characterBattler WHERE characterID > -1")
     awesomeCursor.execute("ALTER TABLE tag auto_increment = 0")
+    awesomeCursor.execute("ALTER TABLE monster auto_increment = 0")
     awesomeCursor.execute("ALTER TABLE sticker auto_increment = 0")
     awesomeCursor.execute("ALTER TABLE characterBattler auto_increment = 0")
     wirral.commit()
@@ -64,8 +60,10 @@ def newLeaf():
         header = read.__next__()
         for row in read:
             print(row)
-            sql = "INSERT INTO monster VALUES ( %s , %s , %s , %s , %s , %s , %s , %s , %s , %s )"
+            sql = "INSERT INTO monster (bestiaryID, name, type, maxHP, mATK, mDEF, rATK, rDEF, speed) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)"
             wirral.cursor(prepared=True).execute(sql,row)
+    awesomeCursor.execute("UPDATE monster SET monsterID = monsterID-2")
+    awesomeCursor.execute("ALTER TABLE monster auto_increment = 163")
     print("hi")
     wirral.commit()
     with open(directory + 'Stickers.csv', "r") as dataFile:
@@ -109,7 +107,10 @@ def newLeaf():
     res = awesomeCursor.fetchall()
     for k in res:
         print(k[0] + "hi")
-
+    dialog = Farewell()
+    dialog.setText("A restart is needed.")
+    dialog.exec()
+    sys.exit()
 def checkTypeAdv(attacker, defender) -> int:
     advantage = 0
     disadvantage = 0
@@ -282,7 +283,43 @@ class MainMenu(QMainWindow, Ui_MainMenu):
         self.dCalcButton.clicked.connect(self.loadDMGCalc)
         self.sLoadoutButton.clicked.connect(self.loadStickerLoadout)
         self.actionCreate_Reset_Local_Database.triggered.connect(newLeaf)
+        self.actionAdd_Monster_Data.triggered.connect(self.newMonster)
+        self.actionAdd_Sticker_Data.triggered.connect(self.newSticker)
+        self.actionCreate_Database_Tables.triggered.connect(self.makeTables)
         uic.loadUi("ui/mainMenu.ui")
+
+    def makeTables(self):
+        stmt = ('drop table monster_has_tag;'
+                'drop table sticker_has_tag;'
+                'drop table monster;'
+                'drop table sticker;'
+                'drop table tag;'
+                'drop table characterBattler;'
+                'SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;'
+                'SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=\'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION\';'
+                'CREATE SCHEMA IF NOT EXISTS `wirral` ;'
+                'USE `wirral` ;'
+                'CREATE TABLE IF NOT EXISTS `wirral`.`monster` (  `bestiaryID` VARCHAR(50) NULL,  `monsterID` INT NOT NULL AUTO_INCREMENT,  `name` VARCHAR(100) NULL,  `type` VARCHAR(50) NULL,  `maxHP` INT NULL,  `mATK` INT NULL,  `mDEF` INT NULL,  `rATK` INT NULL,  `rDEF` INT NULL,  `speed` INT NULL,  PRIMARY KEY (`monsterID`)) ENGINE = InnoDB;'
+                'CREATE TABLE IF NOT EXISTS `wirral`.`sticker` (  `stickerID` INT NOT NULL AUTO_INCREMENT,  `name` VARCHAR(100) NULL,  `type` VARCHAR(100) NULL,  `category` VARCHAR(100) NULL,  `power` INT NULL,  `accuracy` INT NULL,  `apCost` INT NULL,  `description` TEXT(256) NULL,  PRIMARY KEY (`stickerID`)) ENGINE = InnoDB;'
+                'CREATE TABLE IF NOT EXISTS `wirral`.`tag` (  `tagName` VARCHAR(100) NULL,  `tagID` INT NOT NULL AUTO_INCREMENT,  PRIMARY KEY (`tagID`))ENGINE = InnoDB;'
+                'CREATE TABLE IF NOT EXISTS `wirral`.`monster_has_tag` (  `monster_monsterID` INT NOT NULL,  `tag_tagID` INT NOT NULL,  PRIMARY KEY (`monster_monsterID`, `tag_tagID`),  INDEX `fk_monster_has_tag_tag1_idx` (`tag_tagID` ASC) VISIBLE,  INDEX `fk_monster_has_tag_monster_idx` (`monster_monsterID` ASC) VISIBLE,  CONSTRAINT `fk_monster_has_tag_monster`    FOREIGN KEY (`monster_monsterID`)    REFERENCES `wirral`.`monster` (`monsterID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION,  CONSTRAINT `fk_monster_has_tag_tag1`    FOREIGN KEY (`tag_tagID`)    REFERENCES `wirral`.`tag` (`tagID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION)ENGINE = InnoDB;'
+                'CREATE TABLE IF NOT EXISTS `wirral`.`sticker_has_tag` (  `sticker_stickerID` INT NOT NULL,  `tag_tagID` INT NOT NULL,  PRIMARY KEY (`sticker_stickerID`, `tag_tagID`),  INDEX `fk_sticker_has_tag_tag1_idx` (`tag_tagID` ASC) VISIBLE,  INDEX `fk_sticker_has_tag_sticker1_idx` (`sticker_stickerID` ASC) VISIBLE,  CONSTRAINT `fk_sticker_has_tag_sticker1`    FOREIGN KEY (`sticker_stickerID`)    REFERENCES `wirral`.`sticker` (`stickerID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION,  CONSTRAINT `fk_sticker_has_tag_tag1`    FOREIGN KEY (`tag_tagID`)    REFERENCES `wirral`.`tag` (`tagID`)    ON DELETE NO ACTION    ON UPDATE NO ACTION)ENGINE = InnoDB;'
+                'CREATE TABLE IF NOT EXISTS `wirral`.`characterBattler` (  `characterID` INT NOT NULL AUTO_INCREMENT,  `name` VARCHAR(99) NULL,  `maxhp` INT NULL,  `matk` INT NULL,  `mdef` INT NULL,  `ratk` INT NULL,  `rdef` INT NULL,  `speed` INT NULL,  PRIMARY KEY (`characterID`))ENGINE = InnoDB;'
+                'SET SQL_MODE=@OLD_SQL_MODE;SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;alter table tag auto_increment = 1;alter table sticker auto_increment = 1;alter table wirral.characterBattler auto_increment = 1;'
+
+                )
+        wirral.cursor().execute(stmt)
+        wirral.commit()
+        dialog = Farewell()
+        dialog.setText("A restart is needed.")
+        dialog.exec()
+        sys.exit()
+    def newMonster(self):
+        monster = CustomMonsterData()
+        monster.exec()
+    def newSticker(self):
+        s = CustomStickerData()
+        s.exec()
 
     def loadDMGCalc(self):
         self.dmgCalc = Window()
@@ -292,9 +329,60 @@ class MainMenu(QMainWindow, Ui_MainMenu):
         self.party = Party()
         self.party.show()
         pass
+class CustomMonsterData(QDialog, Ui_CustomMonster):
+    b_ID = "???"
+    m_name = "Loremipsum"
+    hp = 0
+    mDMG = 0
+    rDMG = 0
+    mDEF = 0
+    rDEF = 0
+    spd = 0
+    mtype = "Beast"
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+        self.accepted.connect(self.setData)
+        uic.loadUi("ui/CustomMonster.ui")
+        self.setWindowTitle("Enter Custom Values")
+    def setData(self):
+        self.b_ID = self.bestiaryID.text()
+        self.m_name = self.monsterName.text()
+        self.hp = self.MaxHP.value()
+        self.mtype = self.comboBox.currentText()
+        self.mDMG = self.MeleeATK.value()
+        self.rDMG = self.MeleeDEF.value()
+        self.mDEF = self.RangedATK.value()
+        self.rDEF = self.RangedDEF.value()
+        self.spd = self.Speed.value()
+
+        stmt = "INSERT INTO monster (bestiaryID, name, type, maxHP, mATK, mDEF, rATK, rDEF, speed) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        mycursor.execute(stmt, (self.b_ID, self.m_name, self.mtype, self.hp, self.mDMG, self.mDEF, self.rDMG, self.rDEF, self.spd,))
+        mycursor.execute("INSERT INTO monster_has_tag VALUES(LAST_INSERT_ID(), 173)")
+        wirral.commit()
+class CustomStickerData(QDialog, Ui_StickerMaker):
+    move_name = ""
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+        self.accepted.connect(self.setData)
+        uic.loadUi("ui/CustomSticker.ui")
+        self.setWindowTitle("Enter Custom Values")
+    def setData(self):
+
+
+        stmt = "INSERT INTO sticker (name, type, category, power, accuracy, apCost, description) VALUES(%s, %s, %s, %s, %s, %s, %s)"
+        mycursor.execute(stmt, (self.moveName.text(),
+                                self.s_type.currentText(),
+                                self.category.currentText(),
+                                self.power.value(),
+                                self.Accuracy.value(),
+                                self.APcost.value(),
+                                self.desc.toPlainText(),))
+        mycursor.execute("INSERT INTO sticker_has_tag VALUES(LAST_INSERT_ID(), 168)")
+        wirral.commit()
 class Party(QMainWindow, Ui_StickerLoad):
     tabSelected = 0
-    updating = False
     listArray = []
     forceNaturalType = True
     tabHasBeenInitialized = [False, False, False, False, False, False]
@@ -307,12 +395,11 @@ class Party(QMainWindow, Ui_StickerLoad):
                 w.setEditable(True)
         uic.loadUi("ui/stickerLoadout.ui")
         self.tabSelected = self.tabWidget.currentIndex()
-        self.tabWidget.currentChanged.connect(self.tabChange)
-        self.actionSecrets.checkableChanged.connect(self.updateMonsterList)
-        self.actionUnique_Monsters.checkableChanged.connect(self.updateMonsterList)
-        self.actionPost_Game.checkableChanged.connect(self.updateMonsterList)
-        self.actionPier_Of_The_Unknown_DLC.checkableChanged.connect(self.updateMonsterList)
-        self.actionSunshine_Update.checkableChanged.connect(self.updateMonsterList)
+        #self.actionSecrets.checkableChanged.connect(self.updateMonsterList)
+        #self.actionUnique_Monsters.checkableChanged.connect(self.updateMonsterList)
+        #self.actionPost_Game.checkableChanged.connect(self.updateMonsterList)
+        #self.actionPier_Of_The_Unknown_DLC.checkableChanged.connect(self.updateMonsterList)
+        #self.actionSunshine_Update.checkableChanged.connect(self.updateMonsterList)
         self.mcb_1.currentIndexChanged.connect(self.setForceNaturalType)
         self.mcb_1.currentIndexChanged.connect(self.changeStickers)
         self.mct_1.currentIndexChanged.connect(self.changeStickers)
@@ -331,12 +418,23 @@ class Party(QMainWindow, Ui_StickerLoad):
         self.mcb_6.currentIndexChanged.connect(self.setForceNaturalType)
         self.mcb_6.currentIndexChanged.connect(self.changeStickers)
         self.mct_6.currentIndexChanged.connect(self.changeStickers)
+        self.tabWidget.currentChanged.connect(self.tabChange)
 
         self.actionExport_Party.triggered.connect(self.saveParty)
         self.actionImport_Party.triggered.connect(self.importParty)
 
         self.updateMonsterList()
-        self.changeStickers()
+        for i in range(6):
+            self.forceNaturalType = True
+            self.mcb_1.setCurrentIndex(11)
+            self.mcb_2.setCurrentIndex(11)
+            self.mcb_3.setCurrentIndex(11)
+            self.mcb_4.setCurrentIndex(11)
+            self.mcb_5.setCurrentIndex(11)
+            self.mcb_6.setCurrentIndex(11)
+            self.tabSelected = i
+            self.changeStickers()
+        self.tabSelected = 0
     def setForceNaturalType(self):
         self.forceNaturalType = True
     def createSaveFile(self) -> str:
@@ -406,17 +504,10 @@ class Party(QMainWindow, Ui_StickerLoad):
 
 
     def updateMonsterList(self):
-
+        print("list updated!")
         baseStatement = "SELECT name, monsterID FROM monster WHERE monsterID > -1 and monsterID not between 132 and 151"
-        mycursor.execute(baseStatement + self.spoilerAvoider())
+        mycursor.execute(baseStatement)
         items = mycursor.fetchall()
-        self.listArray.clear()
-        self.mcb_1.clear()
-        self.mcb_2.clear()
-        self.mcb_3.clear()
-        self.mcb_4.clear()
-        self.mcb_5.clear()
-        self.mcb_6.clear()
         for i in items:
             self.listArray.append(i[0])
             self.mcb_1.addItem(i[0],i[1])
@@ -425,22 +516,13 @@ class Party(QMainWindow, Ui_StickerLoad):
             self.mcb_4.addItem(i[0],i[1])
             self.mcb_5.addItem(i[0],i[1])
             self.mcb_6.addItem(i[0],i[1])
-        self.mcb_1.repaint()
-        self.mcb_2.repaint()
-        self.mcb_3.repaint()
-        self.mcb_4.repaint()
-        self.mcb_5.repaint()
-        self.mcb_6.repaint()
     def tabChange(self):
-        self.tabSelected = self.tabWidget.currentIndex()
         print(self.tabSelected)
-        self.updating = True
-        self.updateMonsterList()
-        self.updating = False
         if not self.tabHasBeenInitialized[self.tabSelected]:
             self.forceNaturalType = True
             self.changeStickers()
             self.tabHasBeenInitialized[self.tabSelected] = True
+        self.tabSelected = self.tabWidget.currentIndex()
     def spoilerAvoider(self) -> str:
         spoiler = ""
         if not self.actionSecrets.isChecked():
@@ -455,7 +537,6 @@ class Party(QMainWindow, Ui_StickerLoad):
             spoiler += " and monsterID not between 129 and 131"
         return spoiler
     def changeStickers(self):
-        if self.updating: return
         match self.tabSelected:
             case 0:
                 monsterID = self.mcb_1.currentData()
@@ -478,9 +559,13 @@ class Party(QMainWindow, Ui_StickerLoad):
                     self.forceNaturalType = False
                 mycursor.execute(f"SELECT tag_tagID FROM monster_has_tag WHERE monster_monsterID = %s ", (monsterID,))
                 monsterTags = mycursor.fetchall()
-                print(monsterTags)
+                #print(monsterTags)
                 stickerIDs = []
+                selectAll = False
                 for k in monsterTags:
+                    if k[0] == 173:
+                        selectAll = True
+                        break
                     mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_1.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
@@ -495,11 +580,11 @@ class Party(QMainWindow, Ui_StickerLoad):
                 self.c6_m_1.clear()
                 self.c7_m_1.clear()
                 self.c8_m_1.clear()
-                print(stickerIDs)
-                print(stickers)
+                #print(stickerIDs)
+                #print(stickers)
                 for j in stickers:
                     if (not stickerIDs.__contains__(j[1])
-                            and not self.actionAll_Stickers_Compatible.isChecked()
+                            and not self.actionAll_Stickers_Compatible.isChecked() and not selectAll
                             and self.mcb_1.currentIndex() != -1):
                         continue
                     self.c1_m_1.addItem(j[0],j[1])
@@ -541,7 +626,11 @@ class Party(QMainWindow, Ui_StickerLoad):
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
+                selectAll = False
                 for k in monsterTags:
+                    if k[0] == 173:
+                        selectAll = True
+                        break
                     mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_2.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
@@ -558,7 +647,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                 self.c8_m_2.clear()
                 for j in stickers:
                     if (not stickerIDs.__contains__(j[1])
-                            and not self.actionAll_Stickers_Compatible.isChecked()
+                            and not self.actionAll_Stickers_Compatible.isChecked() and not selectAll
                             and self.mcb_2.currentIndex() != -1):
                         continue
                     self.c1_m_2.addItem(j[0], j[1])
@@ -600,7 +689,11 @@ class Party(QMainWindow, Ui_StickerLoad):
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
+                selectAll = False
                 for k in monsterTags:
+                    if k[0] == 173:
+                        selectAll = True
+                        break
                     mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_3.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
@@ -617,7 +710,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                 self.c8_m_3.clear()
                 for j in stickers:
                     if (not stickerIDs.__contains__(j[1])
-                            and not self.actionAll_Stickers_Compatible.isChecked()
+                            and not self.actionAll_Stickers_Compatible.isChecked() and not selectAll
                             and self.mcb_3.currentIndex() != -1):
                         continue
                     self.c1_m_3.addItem(j[0],j[1])
@@ -659,7 +752,11 @@ class Party(QMainWindow, Ui_StickerLoad):
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
+                selectAll = False
                 for k in monsterTags:
+                    if k[0] == 173:
+                        selectAll = True
+                        break
                     mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_4.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
@@ -676,7 +773,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                 self.c8_m_4.clear()
                 for j in stickers:
                     if (not stickerIDs.__contains__(j[1])
-                            and not self.actionAll_Stickers_Compatible.isChecked()
+                            and not self.actionAll_Stickers_Compatible.isChecked() and not selectAll
                             and self.mcb_4.currentIndex() != -1):
                         continue
                     self.c1_m_4.addItem(j[0],j[1])
@@ -718,7 +815,11 @@ class Party(QMainWindow, Ui_StickerLoad):
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
+                selectAll = False
                 for k in monsterTags:
+                    if k[0] == 173:
+                        selectAll = True
+                        break
                     mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_5.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
@@ -735,7 +836,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                 self.c8_m_5.clear()
                 for j in stickers:
                     if (not stickerIDs.__contains__(j[1])
-                            and not self.actionAll_Stickers_Compatible.isChecked()
+                            and not self.actionAll_Stickers_Compatible.isChecked() and not selectAll
                             and self.mcb_5.currentIndex() != -1):
                         continue
                     self.c1_m_5.addItem(j[0],j[1])
@@ -777,7 +878,11 @@ class Party(QMainWindow, Ui_StickerLoad):
                 monsterTags = mycursor.fetchall()
 
                 stickerIDs = []
+                selectAll = False
                 for k in monsterTags:
+                    if k[0] == 173:
+                        selectAll = True
+                        break
                     mycursor.execute(f"SELECT sticker_stickerID FROM sticker_has_tag WHERE tag_tagID = %s or tag_tagID = 168 or tag_tagID = %s ", (k[0],typeTagToCheck(self.mct_6.currentText())))
                     temp = mycursor.fetchall()
                     for p in temp:
@@ -794,7 +899,7 @@ class Party(QMainWindow, Ui_StickerLoad):
                 self.c8_m_6.clear()
                 for j in stickers:
                     if (not stickerIDs.__contains__(j[1])
-                            and not self.actionAll_Stickers_Compatible.isChecked()
+                            and not self.actionAll_Stickers_Compatible.isChecked() and not selectAll
                             and self.mcb_6.currentIndex() != -1):
                         continue
                     self.c1_m_6.addItem(j[0],j[1])
@@ -1017,6 +1122,11 @@ class GetResults(QMessageBox):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Damage Results")
+
+class Farewell(QMessageBox):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Restart Needed")
 
 
 app = QtWidgets.QApplication(sys.argv)

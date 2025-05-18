@@ -989,23 +989,12 @@
     <property name="title">
      <string>Tools</string>
     </property>
-    <widget class="QMenu" name="menuSpoiler_Settings">
-     <property name="title">
-      <string>Spoiler Settings</string>
-     </property>
-     <addaction name="actionSecrets"/>
-     <addaction name="actionUnique_Monsters"/>
-     <addaction name="actionPost_Game"/>
-     <addaction name="actionPier_Of_The_Unknown_DLC"/>
-     <addaction name="actionSunshine_Update"/>
-    </widget>
     <widget class="QMenu" name="menuExtra_Settings">
      <property name="title">
       <string>Extra Settings</string>
      </property>
      <addaction name="actionAll_Stickers_Compatible"/>
     </widget>
-    <addaction name="menuSpoiler_Settings"/>
     <addaction name="menuExtra_Settings"/>
     <addaction name="separator"/>
     <addaction name="actionExport_Party"/>
