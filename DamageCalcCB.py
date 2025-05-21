@@ -53,7 +53,6 @@ def newLeaf():
             print(row)
             sql = "INSERT INTO tag (tagName) VALUES ( %s )"
             wirral.cursor(prepared=True).execute(sql,row)
-    print("hi")
     wirral.commit()
     with open(directory + 'Monsters.csv', "r") as dataFile:
         read = csv.reader(dataFile)
@@ -64,7 +63,6 @@ def newLeaf():
             wirral.cursor(prepared=True).execute(sql,row)
     awesomeCursor.execute("UPDATE monster SET monsterID = monsterID-2")
     awesomeCursor.execute("ALTER TABLE monster auto_increment = 163")
-    print("hi")
     wirral.commit()
     with open(directory + 'Stickers.csv', "r") as dataFile:
         read = csv.reader(dataFile)
@@ -73,7 +71,6 @@ def newLeaf():
             print(row)
             sql = "INSERT INTO sticker VALUES ( %s , %s , %s , %s , %s , %s , %s , %s)"
             wirral.cursor(prepared=True).execute(sql,row)
-    print("hi")
     wirral.commit()
     with open(directory + 'stickerTag.csv', "r") as dataFile:
         read = csv.reader(dataFile)
@@ -82,7 +79,6 @@ def newLeaf():
             print(row)
             sql = "INSERT INTO sticker_has_tag VALUES ( %s , %s )"
             wirral.cursor(prepared=True).execute(sql,row)
-    print("hi")
     wirral.commit()
     with open(directory + 'monsterTag.csv', "r") as dataFile:
         read = csv.reader(dataFile)
@@ -91,7 +87,6 @@ def newLeaf():
             print(row)
             sql = "INSERT INTO monster_has_tag VALUES ( %s , %s )"
             wirral.cursor(prepared=True).execute(sql,row)
-    print("hi")
     wirral.commit()
     with open(directory + 'Characters.csv', "r") as dataFile:
         read = csv.reader(dataFile)
@@ -100,13 +95,12 @@ def newLeaf():
             print(row)
             sql = "INSERT INTO characterBattler VALUES ( %s , %s , %s , %s , %s , %s , %s , %s)"
             wirral.cursor(prepared=True).execute(sql,row)
-    print("hi")
     wirral.commit()
 
     awesomeCursor.execute("SELECT * FROM tag")
     res = awesomeCursor.fetchall()
     for k in res:
-        print(k[0] + "hi")
+        print(k[0])
     dialog = Farewell()
     dialog.setText("A restart is needed.")
     dialog.exec()
